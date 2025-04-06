@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript Task 2</title>
+    </head>
+    <body>
+        <h1 style="text-align: center;"> Check the console for the output</h1>
+        <script>
+            let student_Name="Petter";
+            let student_age=22;
+            let total_mark=85;
+            let is_Passed=true;
+            console.log("Student Name: " + student_Name);
+            console.log("Student Age: " + student_age);
+            console.log("Total Marks: " + total_mark);
+            console.log("Is Passed: " + is_Passed);
+
+            const pii=3.14;
+            console.log("Value of pi: " + pii);
+            /*pii=3.14159;
+            console.log("Updated value of pi: " + pii);*/
+
+            let pets=["dog","cat","fish","bird","hamster","camelion"];
+            console.log("A random pet is :"+ pets[4]);
+            pets.push("tortoise");
+            console.log("New list of pets are : " + pets);
+
+            let num1=83;
+            let num2=54;
+            console.log("The sum of " + num1 + " and " + num2 + " is: " + (num1+num2));
+
+            let radius=5;
+            let area=pii*radius*radius;
+            console.log("The area of a circle with radius " + radius + " is: " + area);
+
+            let len=41;
+            let wid=12;
+            let area_of_rectangle=len*wid;
+            console.log("The area of a rectangle with length " + len + " and width " + wid + " is: " + area_of_rectangle);
+
+            let base=15;
+            let hei=10;
+            let area_of_triangle=(base*hei)/2;
+            console.log("The area of a triangle with base " + base + " and height " + hei + " is: " + area_of_triangle);
+
+            let a=12 , b=23;
+            console.log("The value of a is: " + a );
+            console.log("The value of b is: " + b);
+            console.log("Additon ="+(a+b));
+            console.log("Subtraction ="+(a-b));
+            console.log("Multiplication ="+(a*b));
+            console.log("Division ="+(a/b));
+
+            let value=3;
+            console.log("The value = " + value);
+            value +=5;
+            console.log("The value after +=5 ="+ value);
+            value -=2;
+            console.log("The value after -=2 ="+ value);
+            value *=10;
+            console.log("The value after *=10 ="+ value);
+            value /=2;
+            console.log("The value after /=2 ="+ value);
+
+            let x=4;
+            console.log("x = " + x);
+            x++;
+            console.log("x after increment = " + x);
+            x--;
+            console.log("x after decrement = " + x);
+
+            let m=12;
+            let n=34;
+            console.log("m = " + m + " and n = " + n);
+            console.log("Equal to = " + (m==n));
+            console.log("Not equal to = " + (m!=n));
+            console.log("Strict equal to = " + (m===n));
+            console.log("Strict not equal to = " + (m!==n)); 
+            console.log("Greater than = " + (m>n));
+            console.log("Less than = " + (m<n));
+            console.log("Greater than or equal to = " + (m>=n));
+            console.log("Less than or equal to = " + (m<=n));
+
+            let bool1=true;
+            let bool2=false;
+            console.log("bool1 = " + bool1 + " and bool2 = " + bool2);
+            console.log("Logical AND = " + (bool1 && bool2));
+            console.log("Logical OR = " + (bool1 || bool2));
+            console.log("Logical NOT for bool1 = " + !bool1);
+            console.log("Logical NOT for bool2 = " + !bool2);
+
+            let c=25, d=85;
+            console.log("The value of c = " + c + " and d = " + d);
+            let temp=c;
+            c=d;
+            d=temp;
+            console.log("After swapping, the value of c = " + c + " and d = " + d);
+
+            let marks=[78, 85, 90, 95, 88];
+            console.log("Marks of the student are: " + marks);
+            let total=marks[0]+marks[1]+marks[2]+marks[3]+marks[4];
+            console.log("Total marks = " + total);
+            let avg=total/5;
+            console.log("Average marks = " + avg);
+
+            let a1=10, a2=30,a3=12,a4=3;
+            console.log("The value of a1 = " + a1 + ", a2 = " + a2 + ", a3 = " + a3 + ", a4 = " + a4);
+            let result=((a1+a2)*a3)/a4;
+            console.log("The result of the expression is: " + result);
+
+            console.log("The mark of a 10th student:");
+            let tamil=86;
+            let english=90;
+            let maths=95;
+            let science=88;
+            let social=92;
+            console.log(" Tamil = " + tamil + ",\n English = " + english + ",\n Maths = " + maths + ",\n Science = " + science + ",\n Social = " + social);
+            let totalMark= tamil+english+maths+science+social;
+            console.log("Total marks = " + totalMark);
+            average=totalMark/5;
+            console.log("Average marks = " + average);
+        </script>
+    </body>
+</html>
