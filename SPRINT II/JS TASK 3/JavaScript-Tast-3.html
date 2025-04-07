@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript Task 3</title>
+</head>
+<body>
+    <h1 style="text-align: center;">JavaScript Functions</h1>
+    <script>
+        function sayHello(name){
+            console.log("Hello " + name + "!");
+        }
+        sayHello("Peter Parker");
+        function add(a,b){
+            let addition=a+b;
+            console.log("The sum =",addition);
+        }
+        add(12,5);
+        function multiply(c,d){
+            let mul=c*d;
+            console.log("The multiplication =",mul);
+        }
+        multiply(12,5);
+        function multiplication(e,f){
+            let mul2=e*f;
+            console.log("Another multiplication =",mul2);
+        }
+        multiplication(45,13);
+        function division(g,h){
+            let div=g/h;;
+            console.log("The Division =",div);
+        }
+        division(60,3);
+        function fact(n){
+            if (n===0||n===1){
+                return 1;
+            }
+            else{
+                return n*fact(n-1);
+            }
+        }
+        let n=4;
+        console.log("The factorial of "+n+" is", fact(4));
+        function square(num){
+            let sq=num*num;
+            console.log("The square of "+num+" is", sq);
+        }
+        square(7);
+    </script>
+</body>
