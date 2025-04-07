@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript Test 4</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: beige;
+            padding: 20px;
+        }
+        section{
+            box-shadow: 0 0 10px #ccc;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20PX;
+            margin: auto;
+            width: 500px;
+            background-color: WHITE;
+        }
+        input,button{
+            font-size: medium;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">JavaScript Fundamental Challenge</h1>
+    <div class="box">
+    <section>
+        <h2>1. Number is Positive or Negative</h2>
+        <input type="number" id="checknum" placeholder="Enter the number">
+        <button onclick="checknumber()"> Check</button>
+        <div id="out1" class="output"></div>
+    </section>
+    
+    <section>
+        <h2>2. Number is Odd or Even </h2>
+        <input type="number" id="oddeven" placeholder="Enter the number">
+        <button onclick="checkoddeven()"> Check</button>
+        <div id="out2" class="output"></div>
+    </section>
+
+    <section>
+        <h2>3. Power of a number </h2>
+        <input type="number" id="base" placeholder="Enter the base">
+        <input type="number" id="expo" placeholder="Enter the exponent">
+        <button onclick="checkpowernum()"> Find</button>
+        <div id="out3" class="output"></div>
+    </section>
+
+    <section>
+        <h2>4. Compare two number </h2>
+        <input type="number" id="number1" placeholder="Enter number 1">
+        <input type="number" id="number2" placeholder="Enter number 2">
+        <button onclick="comparenum()"> Compare</button>
+        <div id="out4" class="output"></div>
+    </section>
+
+    <section>
+        <h2>5. To find leap year </h2>
+        <input type="number" id="year" placeholder="Enter a year">
+        <button onclick="checkleapyear()"> Check</button>
+        <div id="out5" class="output"></div>
+    </section>
+
+    <section>
+        <h2>6. Grade calculation </h2>
+        <input type="number" id="grade" placeholder="Enter mark">
+        <button onclick="gradecal()"> Check</button>
+        <div id="out6" class="output"></div>
+    </section>
+
+    <section>
+        <h2>7. Age based Message </h2>
+        <input type="number" id="age" placeholder="Enter the age">
+        <button onclick="agemsg()"> Check</button>
+        <div id="out7" class="output"></div>
+    </section>
+
+    <section>
+        <h2>8. FizzBuzz Challenge </h2>
+        <button onclick="fizzbuzz()"> Run</button>
+        <div id="out8" class="output"></div>
+    </section>
+
+    <section>
+        <h2>9. leap year checker </h2>
+        <input type="number" id="leapyear" placeholder="Enter a year">
+        <button onclick="checkleapyear2()"> Check</button>
+        <div id="out9" class="output"></div>
+    </section>
+    </div>
+    <script>
+        function checknumber(){
+            let num=Number(document.getElementById("checknum").value);
+            if (num >0){
+                document.getElementById("out1").textContent="Positive number";
+            }
+            else if (num<0){
+                document.getElementById("out1").textContent="Negative number";
+            }
+            else {
+                document.getElementById("out1").textContent="Number is zero";
+            }
+        }
+        
+        function checkoddeven(){
+            let num=Number(document.getElementById("oddeven").value);
+            if (num%2===0){
+                document.getElementById("out2").textContent="Even number";
+            }
+            else {
+                document.getElementById("out2").textContent="Odd number";
+            }
+        }
+
+        function checkpowernum(){
+            let base=Number(document.getElementById("base").value);
+            let expo=Number(document.getElementById("expo").value);
+            let ans=base**expo;
+            document.getElementById("out3").textContent=ans;
+        }
+
+        function comparenum(){
+            let num1=Number(document.getElementById("number1").value);
+            let num2=Number(document.getElementById("number2").value);
+            if (num1 >num2){
+                document.getElementById("out4").textContent=num1 +" is greater than "+num2;
+            }
+            else if (num1<num2){
+                document.getElementById("out4").textContent=num1 +" is less than "+num2;
+            }
+            else{
+                document.getElementById("out4").textContent="Both number are equal";
+            }
+        }
+
+        function checkleapyear(){
+            let year=Number(document.getElementById("year").value);
+            if (year%4===0){
+                if (year %100 !==0 ||year %400 ===0){
+                    document.getElementById("out5").textContent="This year is leap year";
+                }
+                else{
+                    document.getElementById("out5").textContent="This year is not a leap year";
+                }
+            }
+            else {
+                document.getElementById("out5").textContent="This year is not a leap year";
+            }
+        }
+
+        function gradecal(){
+            let mark=Number(document.getElementById("grade").value);
+            if (mark>=90){
+                document.getElementById("out6").textContent="A";
+            }
+            else if (mark>=80){
+                document.getElementById("out6").textContent="B";
+            }
+            else if (mark>=70){
+                document.getElementById("out6").textContent="C";
+            }
+            else if (mark>=60){
+                document.getElementById("out6").textContent="D";
+            }
+            else{
+                document.getElementById("out6").textContent="F";
+            }
+        }
+
+        function agemsg(){
+            let age=Number(document.getElementById("age").value);
+            if (age>=25){
+                document.getElementById("out7").textContent="You can do pretty much anything.";
+            }
+            else if (age>=18){
+                document.getElementById("out7").textContent="You can vote but not rent a car.";
+            }
+            else if (age>=16){
+                document.getElementById("out7").textContent="You can drive but not vote.";
+            }
+            else{
+                document.getElementById("out7").textContent="You can't drive.";
+            }
+        }
+
+        function fizzbuzz(){
+            let text="";
+            for (let i=1; i<=20; i++){
+                if (i%3===0 && i%5===0){
+                    text+="FrizzBuzz<br>";
+                }
+                else if (i%3===0){
+                    text+="Fizz<br>";
+                }
+                else if(i%5===0){
+                    text+="Buzz<br>";
+                }
+                else{
+                    text+=i+"<br>";
+                }
+            }
+            document.getElementById("out8").innerHTML=text;
+        }
+
+        function checkleapyear2(){
+            let year=Number(document.getElementById("leapyear").value);
+            if (year%4===0 &&year %100 !==0 ||year %400 ===0){
+                document.getElementById("out9").textContent="This year is leap year";
+            }
+            else {
+                document.getElementById("out9").textContent="This year is not a leap year";
+            }
+        }
+    </script>
+</body>
+</html>
