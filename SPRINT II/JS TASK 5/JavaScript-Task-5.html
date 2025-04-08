@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript task 5</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Task 5</h1><br><br><br>
+    <script>
+        document.write("<h2>1. Numbers from 1 to 10</h2>");
+        for(let i=1; i<=10;i++){
+            document.write(i+ "  ");
+        }
+
+        document.write("<h2>2. Even numbers from 1 to 20</h2>");
+        for(let i=1; i<=20;i++){
+            if(i%2===0){
+                document.write(i+ "  ");
+            }
+        }
+
+        document.write("<h2>3. Odd numbers from 1 to 20</h2>");
+        for(let i=1; i<=20;i++){
+            if(i%2 !==0){
+                document.write(i+ "  ");
+            }
+        }
+
+        document.write("<h2>4. Factorial of 8</h2>");
+        let fact=1;
+        for(let i=1; i<=8; i++){
+            fact*=i;
+        }
+        document.write("Factorial is:"+fact);
+
+        document.write("<h2>5. Sum of numbers from 1 to 100</h2>");
+        let sum=0;
+        for(let i=1; i<=100; i++){
+            sum+=i;
+        }
+        document.write("Factorial is:"+sum);
+
+        document.write("<h2>6. Average of number in an array</h2>")
+        let array=[12,45,78,36,59];
+        let total=0;
+        for(let i=0; i<array.length; i++){
+            total+=array[i];
+        }
+        document.write("Average of number in an array ="+(total/array.length));
+
+        document.write("<h2>7. Pattern using nestod for loop</h2>");
+        for(let i=1; i<=5; i++){
+            for(let j=1; j<=i; j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+
+        document.write("<h2>8. Numbers from 1 to 5</h2>");
+        for(let i=1; i<=5;i++){
+            document.write(i+ "  ");
+        }
+
+        document.write("<h2>9. First 10 Natural numbers</h2>");
+        for(let i=1; i<=10;i++){
+            document.write(i+ "  ");
+        }
+
+        document.write("<h2>10. First and last number of a list</h2>");
+        let list=[12,45,30,42,12];
+        if(list[0]== list[list.length]-1){
+            document.write("True");
+        }
+        else{
+            document.write("False");
+        }
+
+        document.write("<h2>11. Print Numbers Divisible by 5</h2>");
+        let num=[45,23,65,17,28,50,35];
+        for(let i=0; i<num.length; i++){
+            if(num[i]%5==0){
+                document.write(num[i]+ " ");
+            }
+        }
+
+        document.write("<h2>12. Check character is vowel or consonant</h2>");
+        let char="a";
+        if(char=='a'||char=='e'||char=='i'||char=='o'||char=='u'||
+            char=='A'||char=='E'||char=='I'||char=='O'||char=='U'){
+                document.write(char+" is vowel");
+            }
+        else{
+            document.write(char+" is not a vowel");
+        } 
+
+        document.write("<h2>13. Occurrences of even and odd numbers between 10 and 55</h2>");
+        let odd=0;
+        let even=0;
+        for(let i=10; i<=55;i++){
+            if(i%2===0){
+                even++;
+            }
+            else{
+                odd++;
+            }
+        }
+        document.write("total no of even from 10 to 55 is :"+even+"<br>");
+        document.write("total no of odd from 10 to 55 is :"+odd);
+
+        document.write("<h2>14. Numbers from 1 to 25 and excluding multiples of 5</h2>");
+        for(let i=1; i<=25;i++){
+            if(i%5!==0){
+                document.write(i+ "  ");
+            }
+        }
+
+        document.write("<h2>15. Factorial of each element in an Array</h2>");
+        let factnum=[2,5,8,6,4,3];
+        for(let i=0; i<=factnum.length; i++){
+            let n=factnum[i];
+            let f=1;
+            for(let j=1; j<=n; j++){
+                f*=j;
+            }
+            document.write("Factorial of elements in the arrya is :"+f+"<br>");
+        }
+       
+        document.write("<h2>16. Product or sum of two Integers</h2>");
+        let a1=50;
+        let a2=76;
+        if(a1*a2>500){
+            document.write("The product is greater than 500 so the sum of two numbers is :"+(a1+a2));
+        }
+        else{
+            document.write("The product is less than 500 so the product of two numbers is :"+(a1*a2));
+        }
+
+        document.write("<h2>17. Greatest of two numbers</h2>");
+        let b1=45;
+        let b2=23;
+        if(b1>b2){
+            document.write("The greatest number between "+b1+" and " +b2+" is : "+b1);
+        }
+        else{
+            document.write("The greatest number between "+b1+" and " +b2+" is : "+b2);
+        }
+
+        document.write("<h2>18. Greatest of three numbers </h2>");
+        let c1=45;
+        let c2=23;
+        let c3=545;
+        if(c1>c2 && c1>c3){
+            document.write("The greatest number between "+c1+" , " +c2+" and "+c3+ " is : "+c1);
+        }
+        else if(c2>c1 &&c2>c3){
+            document.write("The greatest number between "+c1+" , " +c2+" and "+c3+ " is : "+c2);
+        }
+        else{
+            document.write("The greatest number between "+c1+" , " +c2+" and "+c3+ " is : "+c3);
+        }
+
+        document.write("<h2>19. Seperating positive and negative numbers from a list</h2>");
+        let val=[45,23,-45,78,96,-85,-3,-8,34];
+        document.write("Positive numbers are ");
+        for (i=0; i<val.length; i++){
+            if(val[i]>=0){
+                document.write(val[i]+" ");
+            }
+        }
+        document.write("<br>");
+        document.write("Negative numbers are ");
+        for (i=0; i<val.length; i++){
+            if(val[i]<0){
+                document.write(val[i]+" ");
+            }
+        }
+
+    </script>
+</body>
+</html>
