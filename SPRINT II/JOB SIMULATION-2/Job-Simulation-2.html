@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body{
+            background-color: #1a1a1a;
+            color:white;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        h1{
+            text-align: center;
+            margin-top: 60px;
+        }
+        .cal{
+            margin-top: 100px;
+        }
+        input{
+            background-color: #1a1a1a;
+            color: white;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <h1>SIMPLE CALCULATOR</h1>
+    <div class="cal" id="cal">
+        Enter your first number:
+        <input type="number" id="num1" autofocus>
+    </div>
+
+    <script>
+        const cal=document.getElementById("cal");
+        let num1,num2,op;
+        let st=1;
+        cal.addEventListener("keydown", function(e){
+            if(e.key==="Enter"){
+                const field=e.target;
+                const val=field.value.trim();
+                field.disabled=true;
+                if(st===1){
+                    num1=parseFloat(val);
+                    if(isNaN(num1)){
+                        cal.innerHTML+="\n Not a natural number. Kindly enter a number.";
+                        return;
+                    }
+                    cal.innerHTML+="\n <br><br>" + num1+"\n <br><br> Enter second number.\n";
+                    createInput("secondin","number");
+                    st=2;
+                }
+                else if(st===2){
+                    num2=parseFloat(val);
+                    if(isNaN(num2)){
+                        cal.innerHTML+="\n Not a natural number. Kindly enter a number.";
+                        return;
+                    }
+                    cal.innerHTML+="\n <br><br>" +num2+ "\n <br><br> Choose the operator (+,-,*,/).";
+                    createInput("opin","text");
+                    st=3;
+                }
+                else{
+                    op=val;
+                    cal.innerHTML+="\n<br><br>"+ op+ " \n";
+                    let out;
+                    switch(op){
+                        case '+':
+                            out=num1+num2;
+                            break; 
+                        case '-':
+                            out=num1-num2;
+                            break;
+                        case '*':
+                            out=num1*num2;
+                            break;
+                        case '/':
+                            out=num1/num2;
+                            break;     
+                    }
+                    cal.innerHTML+="\n <br><br> Answer:<br><br>" +num1+"" +op+"" +num2 +"="+ out;
+                }
+            }
+        })
+        function createInput(id, type){
+            const newf=document.createElement("input");
+            newf.type =type;
+            newf.id=id;
+            cal.appendChild(newf);
+            newf.focus();
+        }
+    </script>
+</body>
+</html>
