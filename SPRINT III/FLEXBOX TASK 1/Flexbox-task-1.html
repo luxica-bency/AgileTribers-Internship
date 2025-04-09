@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flexbox challenge-1</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .task1 .a1{
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 300px;
+            width: 350px;
+            margin: 50px auto;
+            color: white;
+        }
+        .task1 header, .task1 footer{
+            padding: 15px;
+            background-color: grey;
+        }
+        .a2{
+            display: flex;
+            flex: 1;
+        }
+        .task1 nav{
+            padding: 20px;
+            flex: 1;
+            background-color: #0000fe;
+        }
+        .task1 aside{
+            background-color: #007f00;
+            flex: 3;
+            padding: 20px;
+        }
+
+        .task2 .b1{
+            display: flex;
+            flex-direction: column;
+            margin: 50px auto;
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+        }
+        .task2 header{
+            padding: 10px;
+            background-color: #fec8fe;
+        }
+        .task2 nav{
+            background-color: #9913eb;
+            color: white;
+        }
+        .task2 main{
+            text-align: center;
+            margin-top: 40px;
+        
+        }
+        .task2 footer{
+            margin-top: 60px;
+            height: 30px;
+            background-color: #ca87f4;
+        }
+
+        .task3 .c1{
+            display: flex;
+            flex-direction: column;
+            margin: 50px auto;
+            border: 1px solid black;
+            height: 250px;
+            width: 250px;
+        }
+        .task3 header{
+            padding: 10px;
+            background-color: #fec8fe;
+        }
+        .task3 nav{
+            background-color: #9913eb;
+            color: white;
+        }
+        .c2{
+            display: flex;
+            flex: 1;
+        }
+        .c3{
+            background-color: #d87ac8;
+            padding: 20px;
+            flex: 1;
+        }
+        .c4{
+            padding: 20px;
+            flex: 3;
+            margin-top: 30px;
+        }
+        .task3 footer{
+        
+            height: 50px;
+            background-color: #ca87f4;
+        }
+
+        .task4 .d1{
+            display: flex;
+            flex-direction: column;
+            margin: 50px auto;
+            background-color: #e2eeef;
+            gap: 5px;
+            width: 450px;
+        }
+        header{
+            height: 60px;
+            justify-content: center;
+        }
+        .d2{
+            display: flex;
+            gap: 10px;
+        }
+        .intro{
+            background-color: #a9d0d9;
+            flex: 2;
+            padding: 20px;
+            margin-left: 10px;
+        }
+        .d3{
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 5px;
+            margin-right: 10px;
+        }
+        .hero{
+            background-color: #a9d0d9;
+            flex: 1;
+            padding: 20px;
+        }
+        .call1{
+            background-color: #ced810;
+        }
+        .d4{
+            display: flex;
+            gap: 10px;
+            height: 40px;
+        }
+        .more{
+            flex: 2;
+            background-color: #a9d0d9;
+            margin-left: 10px;
+        }
+        .call2{
+            flex:1;
+            background-color: #ced810;
+            margin-right: 10px;
+        }
+
+        .task5{
+            display: flex;
+            flex-direction: column;
+            margin: 50px auto;
+            width: 650px;
+            gap: 5px;
+        }
+        .task5 header{
+            font-size: large;
+            font-weight: bold;
+            background-color: #eeeeee;
+        }
+        .task5 nav{
+            background-color: #eeeeee;
+            height: 35px;
+        }
+        .e1{
+            height: 95px;
+            background-color: #eeeeee;
+        }
+        .e2{
+            display: flex;
+            justify-content: space-between;
+            flex: 1;
+        }
+        .e3{
+            background-color: #eeeeee;
+            flex: 1;
+            text-align: center;
+            height: 100px;
+            margin:  5px;
+        }
+        .task5 footer{
+            background-color: #eeeeee;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <section class="task1">
+        <h1>TASK 1</h1>
+        <div class="a1">
+            <header style="background-color: #fea400;">Header</header>
+            <div class="a2">
+            <nav>Nav</nav>
+            <aside>aside</aside>
+            </div>
+            <footer style="background-color: #a42929;">Footer</footer>
+        </div>
+    </section>
+
+    <section class="task2">
+        <h1>TASK 2</h1>
+        <div class="b1">
+            <header>Header</header>
+            <nav>Navigation Bar</nav>
+            <main>Main content</main>
+            <footer>Footer</footer>
+        </div>
+    </section>
+
+    <section class="task3">
+        <h1>TASK 3</h1>
+        <div class="c1">
+            <header>Header</header>
+            <nav>Navigation Bar</nav>
+            <div class="c2">
+                <div class="c3">Left Panel</div>
+                <div class="c4">Main Content</div>
+            </div>
+            <footer>Footer</footer>
+        </div>
+    </section>
+
+    <section class="task4">
+        <h1>TASK 4</h1>
+        <div class="d1">
+            <header style="background-color: #a9d0d9; ">Header</header>
+            <div class="d2">
+                <div class="intro">Intro Copy</div>
+                <div class="d3">
+                    <div class="hero">Hero Image</div>
+                    <div class="call1">Call to Action</div>
+                </div>
+            </div>
+            <div style="background-color: #a9d0d9;margin-left: 10px; margin-right: 10px; height: 70px;">features</div>
+            <div class="d4">
+                <div class="more">More copy</div>
+                <div class="call2">Call to Action</div>
+            </div>
+            <footer style="background-color: #a9d0d9; height: 50px;">Footer</footer>
+        </div>
+    </section>
+
+    <section class="task5">
+        <h1>TASK 5</h1>
+        <header>LOGO</header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#services">Services</a>
+            <a href="#about">about</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="e1">Feature</div>
+        <div class="e2">
+            <div class="e3">Colummn One</div>
+            <div class="e3">Colummn Two</div>
+            <div class="e3">Colummn Three</div>
+        </div>
+        <footer>&copy;Copyright 2011</footer>
+    </section>
+</body>
+</html>
