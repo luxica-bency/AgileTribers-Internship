@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flexbox task 3</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .head{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            width: 97.4%;
+            padding: 16px 25px;
+            color: white;
+            margin-top: -8px;
+        }
+        .logo img{
+            height: 50px;
+            margin-left: 80px;
+        }
+        .menu{
+            display: flex;
+            gap: 24px;
+            margin-right: 100px;
+        }
+        .menu a{
+            text-decoration: none;
+            color: white;
+        }
+        .row2{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 48px 34px ;
+            background-color: lightgrey;
+        }
+        .text{
+            width: 55%;
+            margin-left: 80px;
+            margin-top: -180px;
+        }
+        .img1{
+            width: 40%;
+            margin-right: 90px;
+        }
+        .img1 img{
+            width: 100%;
+            height: 90%;
+            border-radius: 8px
+        }
+
+        .heading{
+            margin: 60px 90px 10px;
+        }
+        .row3{
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px 60px;
+        }
+        .card{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 32px;
+        }
+        .cards{
+            background-color: #2e2e2e;
+            flex-direction: column;
+            width: 438px;
+            height: 300px;
+            padding: 24px;
+
+        }
+        .card h3{
+            font-weight: bold;
+            margin: 10px 0 6px;
+        }
+        .card p{
+            margin-bottom: 12px;
+        }
+        .card button{
+            border: 0;
+            background-color: rgb(255, 145, 0); 
+            color: white;
+            height: 35px; 
+            width: 120px;
+        }
+
+        .row4{
+            display: flex;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 40px 60px;
+        }
+        .row4-sec{
+            flex: 1;
+            margin-right: 40px;
+        }
+        .latestpost{
+            margin-left: 50px;
+        }
+        .latestpost .post{
+            display: flex;
+            margin: 12px 0;
+        }
+        .date{
+            background-color: white;
+            color: black;
+            border-radius: 4px;
+            text-align: center;
+            width: 50px;
+            padding: 5px;
+            margin-right: 12px;
+        }
+        .date .month{
+            display: block;
+            font-weight: bold;
+        }
+        .date .no{
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .post-text p{
+            margin: 2px 0;
+        }
+        .link{
+            margin-right:30px ;
+        }
+    </style>
+</head>
+<body>
+    <header class="head">
+        <div class="logo"><img src="https://img00.deviantart.net/2848/i/2011/335/f/d/bloom_logo_by_werunchick-d4huq60.png " alt="logo"></div>
+            <nav class="menu">
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Services</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Contact</a>
+            </nav>
+    </header>
+
+    <div class="row2">
+        <div class="text">
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum totam aperiam quibusdam! Aut consectetur illo earum assumenda, sint, ipsam delectus natus rerum doloribus dolor 
+            itaque eos dolores nulla magnam rem corporis quibusdam voluptas odit dignissimos similique! Debitis a consequuntur,
+             laudantium deserunt minima voluptatem quisquam voluptate eligendi vero ipsam enim odit iure facere aliquam dolorum inventore commodi repellendus libero, voluptatum voluptates!.<br><br>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, doloribus nihil at atque autem vel laborum quibusdam quas id vitae? 
+        Architecto, aut! Sequi dolor ex magnam neque minus nulla error consequuntur aliquid, consectetur fugit adipisci autem! Debitis natus adipisci nam numquam ut eos hic ab.</p>
+        <button style="background-color: rgb(255, 145, 0); color: white; border: 0;height: 35px; width: 120px;">Learn More</button>
+        </div>
+        <div class="img1"><img src="https://png.pngtree.com/thumb_back/fh260/background/20220314/pngtree-the-unique-beauty-of-blue-flowers-image_1045532.jpg"
+            alt="img1"></div>
+    </div>
+
+    <h2 class="heading">This is a Heading</h2>
+    <div class="row3">
+        <div class="card">
+            <div class="cards"></div>
+            <h3>Lorem, ipsum dolor</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam adipisci eveniet non blanditiis corrupti nam tenetur, nisi necessitatibus distinctio natus</p>
+            <button>Learn More</button>
+        </div>
+        <div class="card">
+            <div class="cards"></div>
+            <h3>Lorem, ipsum dolor</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam adipisci eveniet non blanditiis corrupti nam tenetur, nisi necessitatibus distinctio natus</p>
+            <button>Learn More</button>
+        </div>
+        <div class="card">
+            <div class="cards"></div>
+            <h3>Lorem, ipsum dolor</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam adipisci eveniet non blanditiis corrupti nam tenetur, nisi necessitatibus distinctio natus</p>
+            <button>Learn More</button>
+        </div>
+    </div>
+
+    <div class="row4">
+        <div class="row4-sec latestpost">
+            <h3>Latest Post</h3>
+            <div class="post">
+                <div class="date">
+                    <span class="month">JULY</span>
+                    <span class="no">27</span>
+                </div>
+                <div class="post-text">
+                    <strong>Lorem ipsum dolor sit</strong>
+                    <p>Lorem ipsum dolor sit amet</p>
+                </div>
+            </div>
+            <div class="post">
+                <div class="date">
+                    <span class="month">JULY</span>
+                    <span class="no">27</span>
+                </div>
+                <div class="post-text">
+                    <strong>Lorem ipsum dolor sit</strong>
+                    <p>Lorem ipsum dolor sit amet</p>
+                </div>
+            </div>
+            <div class="post">
+                <div class="date">
+                    <span class="month">JULY</span>
+                    <span class="no">27</span>
+                </div>
+                <div class="post-text">
+                    <strong>Lorem ipsum dolor sit</strong>
+                    <p>Lorem ipsum dolor sit amet</p>
+                </div>
+            </div>
+        </div>
+        <div class="row4-sec about">
+            <h3>About</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis a omnis dignissimos aliquam quibusdam. Voluptatem, quaerat. Delectus, sequi corrupti, id iure 
+                magnam necessitatibus aspernatur laborum natus consequatur nemo nobis eos sapiente accusantium vel!<br><br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime tenetur blanditiis culpa aliquid, officiis error sed harum.</p>
+        </div>
+        <div class="row4-sec link">
+            <h3 style="margin-left:30px ;">Stay Connected</h3>
+            <ul style="list-style: none;">
+                <li><img src="https://static.vecteezy.com/system/resources/previews/016/716/481/original/facebook-icon-free-png.png" alt="facebook" style="width: 20px;height: 20px;">Facebook</li>
+                <li><img src="https://www.freeiconspng.com/uploads/transparent-twitter-png-photo-11.png" alt="twitter" style="width: 20px;height: 20px;">twitter</li>
+                <li><img src="https://www.freeiconspng.com/uploads/rss-feed-logo-symbol-icon-10.png" alt="facebook" style="width: 20px;height: 20px;">RSS</li>
+                <li><img src="https://purepng.com/public/uploads/large/purepng.com-google-icon-android-kitkatsymbolsiconsapp-iconsandroid-kitkatandroid-44-721522597640jmakg.png" alt="facebook" style="width: 23px;height: 23px;">Google+</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer style="text-align: center;">Copyright &copy; 2013. All rights reserved Bloom Web Design</footer>
+</body>
+</html>
