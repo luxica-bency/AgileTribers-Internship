@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flex box task 2</title>
+    <style>
+        .task1{
+            display: flex;
+            flex-direction: column;
+            width: 350px;
+            margin: 50px auto;
+            gap: 5px;
+            padding: 5px;
+            text-align: center;  
+        }
+        .head{
+            background-color: #53d3ed;
+            text-align: center;
+            height: 30px;
+            color: white;
+        }
+        .a1, .a2, .a3, .a4, .a5, .a6{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .row2{
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+            color: white;
+        }
+        .a1{
+            flex: 1;
+            background-color: #d8c8e3;
+            height: 55px;
+            display: flex;
+            text-align: center;
+        }
+        .a2{
+            flex: 2;
+            height: 90px;
+            display: flex;
+            background-color: #f6c632;
+        }
+
+        .row3{
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+            color: white;
+        }
+        .a3{
+            flex: 1;
+            background-color: #9fc065;
+            height: 40px;
+            display: flex;
+            height: 65px;
+            margin-top: -35px;
+        }
+        .a4{
+            display: flex;
+            height: 30px;
+            flex: 2;
+            background-color: #888888;
+            
+        }
+        .row4{
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+            color: white;
+        }
+        .a5{
+            flex: 2;
+            background-color: #2bb675;
+            height: 40px;
+        }
+        .a6{
+            flex: 1;
+            background-color: #f4cbdd;
+        }
+        .foot{
+            background-color: #fca301;
+            text-align: center;
+            height: 30px;
+            color: white;
+        }
+
+        .task2{
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            margin: 50px auto;
+            gap: 5px;
+            padding: 5px;
+            text-align: center;
+        }
+        .row1{
+            display: flex;
+            gap: 5px;
+        }
+        .row1 div{
+            flex: 1;
+
+            background-color: #cc6d6d;
+            height: 50px;
+        }
+        .row2{
+            display: flex;
+            gap: 5px;
+        }
+        .left{
+            flex: 2;
+            background-color: #758167;
+            height: 250px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .small-box{
+            background-color: #f6ef5c;
+            width: 50px;
+            height: 50px;
+        }
+        .right{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .right div{
+            flex: 1;
+            background-color: #869456;
+        }
+
+        .task3{
+            margin: 20px auto;
+            width: 400px;
+            padding: 10px;
+            text-align: center;
+        }
+        .text{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .row{
+            display: flex;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            height: 60px;
+            gap: 10px;
+            padding: 10px;
+            width: 350px;
+        }
+        .box{
+            background-color: lightgreen;
+            border: 1px solid lightgray;
+            width: 80px;
+            height: 50px;
+        }
+        .c1{
+            justify-content: start;
+            gap: 0;
+        }
+        .c2{
+            justify-content: space-between;
+        }
+        .c3{
+            justify-content: space-between;
+        }
+        .c3 .box:nth-child(2){
+            align-self: flex-start;
+        }
+        .c4{
+            justify-content: space-between;
+            align-items: center;
+        }
+        .c4 .box:nth-child(2){
+            align-self: flex-end;
+        }
+        .c5{
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 10px;
+        }
+        .c5 .box:nth-child(1), .c5 .box:nth-child(2){
+            align-self: flex-start;
+        }
+        .c3 .group{
+            gap: 0;
+            display: flex;
+        }
+        .c4 .group{
+            gap: 0;
+            display: flex;
+            align-items: center;
+        }
+        .c5 .group{
+            gap: 0;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <section class="task1">
+        <h1>Task 1</h1>
+        <div class="head">Header</div>
+        <div class="row2">
+            <div class="a1">Hero</div>
+            <div class="a2">Main content</div>
+        </div>
+        <div class="row3">
+            <div class="a3">Sidebar</div>
+            <div class="a4">Extra Content</div>
+        </div>
+        <div class="row4">
+            <div class="a5">Related Images</div>
+            <div class="a6">Related Posts</div>
+        </div>
+        <div class="foot">Footer</div>
+    </section>
+
+    <section class="task2">
+        <h1>Task 2</h1>
+        <div class="row1">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="row2">
+            <div class="left">
+                <div class="small-box"></div>
+            </div>
+            <div class="right">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="task3">
+        <h1>Task 3</h1>
+        <div class="row c1">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="text">justifly-self will do nothing, because there is no space to distribute</div>
+
+        <div class="row c2">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="text">now that we have space to distribute we can use justifly-self</div>
+
+        <div class="row c3">
+            <div class="group">
+                <div class="box"></div>
+                <div class="box"></div></div>
+            <div style="margin-left: auto; display: flex; gap: 10px;">
+                <div class="box"></div>
+                <div class="box"></div></div>
+        </div>
+        <div class="text">justifly-self : flext-start</div>
+
+        <div class="row c4">
+            <div class="box"></div>
+            <div class="group" style="margin-left: auto;">
+                <div class="box"></div>
+                <div class="box"></div></div>
+            <div class="box" style="margin-left: auto; display: flex; gap: 10px;"></div>
+        </div>
+        <div class="text">justifly-self : flext-end</div>
+
+        <div class="row c5">
+            <div class="group">
+                <div class="box"></div>
+                <div class="box"></div></div>
+            <div style="margin-left: -5px; display: flex; gap: 5px;">
+                <div class="box"></div>
+                <div class="box"></div></div>
+        </div>
+        <div class="text">justifly-self : flext-start</div>
+    </section>
+</body>
