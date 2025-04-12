@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>job simulation 3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+    <style>
+        .passport-cover{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+        }
+        .pass-cover{
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 25px;
+            width: 400px;
+            height: 570px;
+            background-color: #8a9982;
+            font-family: 'Playfair Display', serif;
+        }
+        .pass-cover h1{
+            font-family: 'Dancing Script', cursive; 
+            margin-left: 100px;
+            margin-top: 50px; 
+            font-size: 60px;
+            color: #264841;
+        }
+        .pass-cover h2{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold; 
+            margin-left: 40px;
+            margin-top: -50px;
+            color: #FFFDD0;
+            letter-spacing: 25px;
+        }
+        .pass-cover img{
+            width: 250px;
+            height: 250px; 
+            margin-left: 80px;
+            opacity: 0.7;
+            
+        }
+        .pass-cover h3{
+            font-family: 'Mrs Saint Delafield', cursive;
+            text-align: center;
+            font-size: 40px;
+            letter-spacing: 10px;
+            margin-top: 20px;
+        }
+        .pass-cover h4{
+            font-family: 'Times New Roman', Times, serif;
+            color: #FFFDD0;
+            text-align: center;
+            margin-top: -50px;
+            letter-spacing: 5px;
+        }
+
+        .passport-details{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            margin-top: 80px;
+        }
+        .pass-det{
+            display: flex;
+            flex-direction: column;
+            width: 570px;
+            height: 800px;
+            background-color: #8a9982;
+            border-radius: 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .left, .right{
+            width: 100%;
+            height: 50%;
+           
+        }
+        .left h1{
+            font-family: 'Mrs Saint Delafield', cursive;
+            letter-spacing: 12px;
+            text-align: center;
+            font-size: 50px;
+            margin-top: -2px;
+            color: #264841;
+        }
+        .left h2{
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            font-size: 30px;
+            margin-top:-50px;
+            letter-spacing: 10px;
+            color: #FFFDD0;
+        }
+        .left .images{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .left img{
+            opacity: 0.7;
+            width: 350px; 
+            height: 90%;
+            margin-top: -60px; 
+            margin-left: 50px;
+        }
+        img[alt="stamp"]{
+            width: 80px;
+            height: 80px;
+            opacity: 0.5;
+            margin-left: 35px;
+            margin-top: 50px;
+            transform: rotate(20deg);
+        }
+        .right{
+            background-color: #FFFDD0;
+        }
+        .right h3{
+            font-family: 'Times New Roman', Times, serif;
+            letter-spacing: 10px;
+            text-align: center;
+        }
+        .right .img-info{
+            display: flex;
+            margin-left: 10px;
+            margin-top: 20px;
+        }
+        .right .info{
+            display: flex;
+            flex-direction: column;
+            margin-left: 50px;
+        }   
+        .right img{
+            width: 230px; 
+            height: 230px;    
+            border: 1px solid black; 
+        }
+        .info h5{
+            margin-top: -30px;
+            font-weight: bolder;
+        }
+        .info h6{
+            opacity: 0.8;
+            font-size: 13px;
+        }
+        .right p{
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            letter-spacing: 4px;
+            color: #264841;
+        }
+
+        .boarding-pass{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .ticket{
+            width: 1200px;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .first,
+        .second,
+        .third{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .first{
+            flex: 0.3;
+            background-color: #e0a989;
+        }
+        .ver-text{
+            writing-mode: vertical-lr;
+            text-orientation: upright;
+            color: #0D2818;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .second{
+            flex: 4;
+            background-color: #feefe2;
+        }
+        .corner{
+             position: absolute;
+            height: 220px;
+            width: 250px;
+            opacity: 0.5;
+        }
+        .top-left{
+            top: 1px;
+            left: 55px;
+            transform: scaleX(-1);
+        }
+        .bottom-right{
+            bottom: 1px;
+            right: 370px;
+    
+        }
+        .divider{
+            border-left: 2px dotted#999;
+            height: 100%;
+            align-self: center;
+        }
+        .third{
+            flex: 2;
+            background-color: #feefe2;
+        }
+        .guest-det{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+        .gues-det h3, .gues-det h4{
+            margin: 0;
+        }
+        .guest-text{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .guest-text h3{
+            font-family: 'Mrs Saint Delafield', cursive;
+            letter-spacing: 3px;
+            font-size: 30px;
+            margin-top: -20px;
+            color: #0D2818;
+        }
+        .guest-text h4{
+            margin-top: -30px;
+        }
+    </style>
+</head>
+<body>
+    <section class="passport-cover">
+        <div class="pass-cover">
+            <h1 >Wedding</h1>
+            <H2>Passport</H2>
+            <img src="https://th.bing.com/th/id/R.9d1dba595bbe6038120bc6bd47c8015e?rik=xcQAAvCsd1mgGg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fpng-rings-wedding--2000.png&ehk=MFxUmwLjzSWNC02ccNBXuM9tIyYnoNIuKBdYaEkd%2bYw%3d&risl=&pid=ImgRaw&r=0"
+             alt="ring" >
+             <h3>Elena & Rafael</h3>
+             <h4>Request the pleasure of your <br> company as we unite in marriage</h4>
+        </div>
+    </section>
+
+    <section class="passport-details">
+        <div class="pass-det">
+            <div class="left">
+                <h1>Save the date</h1>
+                <h2>05.12.2014</h2>
+                <div class="images">
+                <img src="https://static.vecteezy.com/system/resources/previews/013/855/179/large_2x/bouquet-of-pink-watercolor-flowers-free-png.png" alt="flower1" >
+                <img src="https://png.pngtree.com/png-vector/20220403/ourmid/pngtree-happy-wedding-stamp-mark-red-engagement-vector-png-image_12970742.png" alt="stamp">
+                </div>
+            </div>
+            <div class="right">
+                <h3>PASSPORT TO MARRIAGE</h3>
+                <p>-------------------------------------------------------------</p>
+                <div class="img-info">
+                <img src="https://th.bing.com/th/id/OIP.EAlkV1S3pR3J6_d6gy4n3QAAAA?rs=1&pid=ImgDetMain" alt="couple" >
+                <div class="info">
+                    <h6 style="margin-top: -15px;">The Bride</h6>
+                    <h5>ELRNA</h5><br>
+                    <h6 style="margin-top: -25px;">The Groom</h6>
+                    <h5>RAFAEL</h5>
+                    <h6 style="margin-top: -15px;">Destination</h6>
+                    <h5>ROME, ITALY</h5>
+                    <h6 style="margin-top: -15px;">Location</h6>
+                    <h5>123-B, CHURCH STREET,<br>SOMEWHERE,<br>ROME</h5>
+                    <h6 style="margin-top: -15px;">Time</h6>
+                    <h5>10.00 am</h5>
+                </div>
+                </div>
+                <p>Together with our families, we invite you to celebrate our love and joy on our wedding day</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="boarding-pass">
+        <div class="ticket">
+            <div class="first">
+                <h2 class="ver-text">EVOL GNIDRAOB</h2>
+            </div>
+            <div class="second">
+                <img src="https://png.pngtree.com/png-clipart/20230408/original/pngtree-flower-watercolor-png-image_9036507.png" class="corner top-left" alt="top-cor">
+                <h1 style="font-family: 'Dancing Script', cursive; text-align: center; font-size:50px;color: #8a9982;">Save the date</h1>
+                <img src="https://png.pngtree.com/png-clipart/20230408/original/pngtree-flower-watercolor-png-image_9036507.png" class="corner bottom-right" alt="bottom-cor" >
+                <h3 style="margin-top: 10px; margin-left: 150px;color: #0D2818;">WELCOME ABOARD:</h3>
+                <h4 style="margin-top: -15px;margin-left: 150px;">Elena & Rafael</h4>
+                <h3 style="margin-top: -10px;margin-left: 150px;color: #0D2818;">DESTINATION:</h2>
+                <H4 style="margin-top: -20px;margin-left: 150px;">Rome, Italy</H4>
+                <h3 style="margin-top: -10px;margin-left: 150px;color: #0D2818;">TIME:</h3>
+                <h4 style="margin-top: -20px;margin-left: 150px;">10.00 am</h4>
+                <h3 style="margin-top: -10px;margin-left: 150px;color: #0D2818;">SPECIAL MESSAGE:</h3>
+                <h4 style="margin-top: -20px;margin-left: 150px;">We invite you to share in our joy</h4>
+            </div>  
+            <div class="divider"></div>
+            <div class="third">
+                <img src="https://static.vecteezy.com/system/resources/previews/018/888/344/original/travel-line-icon-png.png" alt="heart-plane" style="width: 150px; height: 150px; margin-left: 70px; margin-top: -20px;">
+                <div class="guest-det">
+                    <img src="https://i.pinimg.com/736x/65/6f/31/656f317d6550a6e0dab16e8beddb7157.jpg" alt="guest" style="width:150px; height: 160px;margin-left: 10px;margin-top: -40px;">
+                    <div class="guest-text">
+                    <h3 >Jenna</h3>
+                    <h4>Your Seat: <br> 2B</h4></div>
+                </div>
+                <img src="https://pnghq.com/wp-content/uploads/pnghq.com-barcode-png-images-768x286.png" alt="barcode" style="width: 300px; height: 50px;margin-left: 40px;">
+            </div>
+        </div>
+    </section>
+</body>
