@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>js with ui task1</title>
+    <style>
+        #hover{
+            border: 1px solid black;
+            width: 150px;
+            text-align: center;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body style="text-align: center;">
+    <h1>Javascript UI Tasks</h1><br>
+    <h2>1.Button click Event</h2>
+    <button id="clickbutton">click</button><br>
+
+    <h2>2. Button Click - Sum of Two variables</h2>
+    <button id="addition">Sum</button><br>
+
+    <h2>3. Input box value Retrieval ( console log)</h2>
+    <input type="text" id="ret" placeholder="Enter text">
+    <button id="task3">submit</button>
+
+    <h2>4. Input box value display (paragraph tag)</h2>
+    <input type="text" id="dis" placeholder="Enter text">
+    <button id="task4">display</button>
+    <p id="para"></p>
+
+    <h2>5. Input box -onchange event</h2>
+    <input type="text" id="on-ch" placeholder="Type something">
+    <h1 id="heading"></h1>
+
+    <h2>6. Double click event</h2>
+    <button id="d-click">Double click</button>
+    <h2 id="msg"></h2>
+
+    <h2>7. Mouse enter and leave event</h2>
+    <div id="hover">
+        hovering
+    </div>
+    <h2 id="msg2"></h2>
+
+    <h2>8. Key press and key release event</h2>
+    <input type="text" id="key" placeholder="Enter anything">
+
+    <script>
+        const btn=document.getElementById("clickbutton");
+        btn.addEventListener("click",function(){
+            console.log("Button clicked!");    
+        })
+
+        let a=10;
+        let b=20;
+        const sum=document.getElementById("addition");
+        sum.addEventListener("click",function(){
+            console.log("Sum of "+a+" and "+b+ " is :", a+b);
+        })
+
+        const task3=document.getElementById("task3");
+        task3.addEventListener("click",function(){
+            let invalue=document.getElementById("ret").value;
+            console.log(invalue);    
+        })
+
+        const task4=document.getElementById("task4");
+        task4.addEventListener("click",function(){
+            let invalue=document.getElementById("dis").value;
+            document.getElementById("para").innerHTML=invalue;
+            console.log("Text =",invalue);    
+        })
+
+        const task5=document.getElementById("on-ch");
+        task5.addEventListener("change",function(){
+            const val=task5.value;
+            document.getElementById("heading").innerText = "value Changed: " + val;
+            console.log("value changed =",val);    
+        })
+
+        const task6=document.getElementById("d-click");
+        task6.addEventListener("dblclick",function(){
+            console.log("Button was double-clicked!");
+            document.getElementById("msg").innerText = "Button was double-clicked!";
+        })
+
+        const hover=document.getElementById("hover");
+        const msg2=document.getElementById("msg2");
+        hover.addEventListener("mouseenter",()=>{
+            msg2.innerHTML="Mouse entered!";    
+        })
+        hover.addEventListener("mouseout",()=>{
+            msg2.innerHTML="Mouse left!";    
+        })
+
+        const key=document.getElementById("key");
+        key.addEventListener("keydown",(event)=>{
+            console.log("Key Pressed!");    
+        })
+        key.addEventListener("keyup",(event)=>{
+            console.log("Key Released!");    
+        })
+    </script>
+</body>
+</html>
