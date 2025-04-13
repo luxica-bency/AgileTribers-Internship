@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>get and display data from form</title>
+    <style>
+        table{
+            border: 1px solid black;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        #display{
+            display: none;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body style="text-align: center;">
+    <div id="formsection">
+    <form id="form">
+        <table>
+            <tr><h1>Form</h1></tr>
+            <tr>
+                <td><label>Name:</label></td>
+                <td><input type="text" id="name" name="name" required>
+                    <div id="nameError" class="error"></div></td>
+            </tr>
+            <tr>
+                <td><label>Age:</label></td>
+                <td><input type="number" id="age" name="age" required min="1">
+                <div id="ageError" class="error"></div></td>
+            </tr>
+            <tr>
+                <td><label>Mother Name:</label></td>
+                <td><input type="text" id="mothername" name="mother name" required>
+                <div id="mothernameError" class="error"></div></td>
+            </tr>
+            <tr>
+                <td><label>Father Name:</label></td>
+                <td><input type="text" id="fathername" name="father name" required>
+                <div id="fathernameError" class="error"></div></td>
+            </tr>
+            <tr>
+                <td><label>Postel Address:</label></td>
+                <td><textarea cols="21" rows="5" id="address" name="address" required></textarea>
+                <div id="addressError" class="error"></div></td>
+            </tr>
+            <tr>
+                <td><label>Email:</label></td>
+                <td><input type="email" id="email" name="email" required>
+                <div id="emailError" class="error"></div></td>
+            </tr>
+            <tr><td><button >Submit</button></td></tr>
+        </table>
+    </form>
+    </div>
+    <div id="display" class="hidden">
+        <h3>Details of user:</h3>
+        <div id="userlist"></div>
+        <button onclick="backtoform()">Back to Form</button>
+        <button onclick="clearuser()">Clear</button>
+    </div>
+
+    <script>
+        function loaduser(){
+            const users= JSON.parse(localStorage.getItem('users')) || [];
+            const userlist=document.getElementById('userlist');
+            userlist.innerHTML='';
+            users.forEach((user, index)=>{
+                const entry=document.createElement('div');
+                entry.classList.add('user-entry');
+                entry.innerHTML=`<p><strong>User ${index +1}:</strong></p>
+                    <p>Name: ${user.name}</p>
+                    <p>Age: ${user.age}</p>
+                    <p>Mother Name: ${user.mothername}</p>
+                    <p>Father Name: ${user.fathername}</p>
+                    <p>Address: ${user.address}</p>
+                    <p>Email: ${user.email}</p>`;
+                userlist.appendChild(entry);
+            })
+        }
+        document.getElementById('form').addEventListener('submit', function(e){
+            e.preventDefault();
+            const name=document.getElementById('name').value.trim();
+            const age=document.getElementById('age').value.trim();
+            const mothername=document.getElementById('mothername').value.trim();
+            const fathername=document.getElementById('fathername').value.trim();
+            const address=document.getElementById('address').value.trim();
+            const email=document.getElementById('email').value.trim();
+            document.getElementById('nameError').textContent='';
+            document.getElementById('ageError').textContent='';
+            document.getElementById('mothernameError').textContent='';
+            document.getElementById('fathernameError').textContent='';
+            document.getElementById('addressError').textContent='';
+            document.getElementById('emailError').textContent='';
+            let isValid=true;
+            if(!/^[a-zA-Z\s]+$/.test(name)){
+                document.getElementById('nameError').textContent='It must contain letters only';
+                isValid=false;
+            }
+            if(isNaN(age) || age<18 || age>70){
+                document.getElementById('ageError').textContent='valid age gap is from 18 to 70';
+                isValid=false;
+            }
+            if(!/^[a-zA-Z\s]+$/.test(mothername)){
+                document.getElementById('mothernameError').textContent='It must contain letters only';
+                isValid=false;
+            }
+            if(!/^[a-zA-Z\s]+$/.test(fathername)){
+                document.getElementById('fathernameError').textContent='It must contain letters only';
+                isValid=false;
+            }
+            if(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(address)){
+                document.getElementById('addressError').textContent='It must contain letters only';
+                isValid=false;
+            }
+            const emailpattern= /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if(!emailpattern.test(email)){
+                document.getElementById('emailError').textContent='Enter valid email address';
+                isValid=false;
+            }
+            if(isValid){
+                const users=JSON.parse(localStorage.getItem('users')) || [];
+                const newuser= {name, age, mothername,fathername, address, email};
+                users.push(newuser);
+                localStorage.setItem('users', JSON.stringify(users));
+                document.getElementById('formsection').style.display='none';
+                document.getElementById('display').style.display='block';
+                loaduser();
+                document.getElementById('form').reset();
+            }
+        });
+        function backtoform(){
+            document.getElementById('display').style.display='none';
+            document.getElementById('formsection').style.display='block';
+        }
+        function clearuser(){
+            localStorage.removeItem('users');
+            document.getElementById('userlist').innerHTML='';
+            alert('All users have been deleted!');
+        }
+        window.onload =function(){
+            loaduser();
+        };
+
+    </script>
+</body>
+</html>
