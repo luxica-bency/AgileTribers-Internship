@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>js with ui task 3</title>
+</head>
+<body style="text-align: center;">
+    <h1>1. Creating & Updating an object</h1>
+    <h3>original Objects</h3>
+    <h4>Name: Alice <br> Age:25<br> City:Chennai</h4>
+
+    <h1>2. Object with a method</h1>
+    <h3>Full name will be visible in console</h3>
+
+    <h1>3. Working with JSON Strings</h1>
+    <h3>JSON String:</h3>
+
+    <h1>4. Fetching data from a local JSON file</h1>
+    <h3>Fetched a data from a json file</h3>
+    <script>
+        const person = { name: "Alice",age: 25,city: "Chennai"};
+        console.log("Original Object:");
+        console.log("Name:", person.name);
+        console.log("Age:", person.age);
+        console.log("City:", person.city);
+        person.name = "Bob";
+        console.log("Updated Object:");
+        console.log(person);
+
+        const user={firstname:"Rose", Lastname:"Soe"};
+        user.getFullName=function(){
+            return this.firstname+" "+this.Lastname;
+        }
+        console.log("Full Name=",user.getFullName());
+
+        const jsonstring='{"name":"John","email":"john@gamil.com","skills":["HTML","CSS","JavaScript"]}';
+        const userobj = JSON.parse(jsonstring);
+        console.log("Name:",userobj.name);
+        console.log("Email:",userobj.email);
+        console.log("Skills:",userobj.skills);
+
+        fetch('data.json')
+        .then(response =>response.json())
+        .then(data=> console.log(data));
+</script>
+</body>
+</html>
