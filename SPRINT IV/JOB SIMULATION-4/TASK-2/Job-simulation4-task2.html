@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Do list </title>
+    <style>
+        body{
+            background-color: #d5afff;
+            padding: 20px;
+            margin: 50px auto;
+        }
+        h1{
+            text-align: center;
+        }
+        .todo{
+            background-color: white;
+            margin: 50px auto;
+            padding: 20px;
+            width: 490px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="text"]{
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button{
+            margin-left: 10px;
+        }
+        button:hover{
+            background-color: #898b8d;
+        }
+        ul{
+            list-style: none;
+            margin-top:20px ;
+            padding: 0;
+        }
+        li{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #c7c9ca;
+            gap: 10px;
+            width: 430px;
+        }
+        .btn-group{
+            display: flex;
+            gap: 5px;
+        }
+        .text-task{
+            flex:1;
+            margin-right: 5px;
+            word-break: break-word;
+        }
+        .btn-group button{
+            background-color: #9b9d9f;
+            border: none;
+            margin-left: 5px;
+        }
+        .btn-group .delete-btn{
+            background-color: #c65661;
+        }
+        .btn-group .edit-btn{
+            background-color: #e2c278;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <div class="todo">
+        <input id="task" type="text" placeholder="Enter a new task" required >
+        <button onclick="addtask()">Add Task</button>
+        <ul id="list"></ul>
+    </div>
+
+    <script>
+        const task=document.getElementById("task");
+        const list=document.getElementById("list");
+        function addtask(){
+            const taskText=task.value.trim();
+            if(taskText===""){
+                alert("Please enter a task.");
+                return;
+            }
+            const existing=document.querySelectorAll(".text-task");
+            for(let i=0;i<existing.length;i++){
+                if(existing[i].innerText===taskText){
+                    alert("Task already exists.");
+                    return;
+                }
+            }
+            const li=document.createElement("li");
+            const span=document.createElement("span");
+            span.className="text-task";
+            span.innerText=taskText;
+            const btn=document.createElement("div");
+            btn.className="btn-group";
+            const edit=document.createElement("button");
+            edit.className="edit-btn";
+            edit.innerText="Edit";
+            edit.onclick= () =>edittask(span);
+            const del=document.createElement("button");
+            del.className="delete-btn";
+            del.innerText="Delete";
+            del.onclick= () =>list.removeChild(li);
+
+            btn.appendChild(edit);
+            btn.appendChild(del);
+            li.appendChild(span);
+            li.appendChild(btn);
+            list.appendChild(li);
+            task.value="";
+        }
+        function edittask(spanElement){
+            const newtask=prompt("Edit task:", spanElement.innerText);
+            if(newtask !== null){
+                const trimmed=newtask.trim();
+                if( trimmed===""){
+                    alert("Task cannot be empty.");
+                    return;
+                }
+                const existing=document.querySelectorAll(".text-task");
+                for(let item of existing){
+                    if(item !==spanElement && item.innerText===trimmed){
+                        alert("Task already exists.");
+                        return;
+                    }
+                }
+                spanElement.innerText=trimmed;
+            }
+        }
+    </script>
+</body>
+</html>
