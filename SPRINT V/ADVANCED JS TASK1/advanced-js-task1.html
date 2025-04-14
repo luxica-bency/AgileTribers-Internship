@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Advanced js task 1</title>
+</head>
+<body style="text-align: center;">
+    <h1>1. Function vs Arrow Function</h1>
+    <h3>Input :[1, 2, 3, 4, 5]</h3>
+    <button onclick="runtraditional()">Traditional Functions</button><br>
+    <button onclick="runarrow()">Arrow Function</button>
+    <div class="out1" id="out1"></div>
+
+    <h1>2. Spread Operator</h1>
+    <div class="out2" id="out2"></div>
+
+    <h1>3. Map Objects</h1>
+    <table style="margin: 50px auto;">
+        <tr><th>Students</th>
+            <th>Score</th></tr>
+        <tr><td>Alice</td>
+            <td>85</td></tr>
+        <tr><td>Bob</td>
+            <td>92</td></tr>
+        <tr><td>Charlie</td>
+            <td>78</td></tr>
+    </table>
+    <p>Enter the student name to get the mark:</p>
+    <input type="text" id="studentName" placeholder="Student Name">
+    <button onclick="Getscores()">Score</button>
+    <div class="out3" id="out3"></div>
+
+    <h1>4. Unique number extractor</h1>
+    <p>Enter number seperated by comma:</p>
+    <input type="text" id="uniqueno" placeholder="Enter numbers with comma">
+    <button onclick="unique()">Remove duplicate</button>
+    <div class="out4" id="out4"></div>
+
+    <h1>5. Array Filter</h1>
+    <h3>Filter words longer than 5 letters</h3>
+    <h4>INPUT: Cheetah, Lion, Falcon, Giraffe, Llama, Koala, Bahoo</h4>
+    <button onclick="filtering()">Filter</button>
+    <div id="out5" class="out5"></div>
+
+    <h1>6.Array reduce</h1>
+    <p>Enter number seperated by comma:</p>
+    <input type="text" id="pro" placeholder="Enter numbers with comma">
+    <button onclick="product()">Product</button>
+    <div id="out6" class="out6"></div>
+
+    <h1>7.Arrya indexOf() and lastIndexOf()</h1>
+    <p>Enter number seperated by comma:</p>
+    <input type="text" id="index" placeholder="Enter numbers with comma">
+    <p>Enter the element to find:</p>
+    <input type="text" id="find" placeholder="Enter a number to find">
+    <button onclick="find()">Find</button>
+    <div id="out7" class="out7"></div>
+
+    <h1>8. Array.isArray()</h1>
+    <p>Enter Input (like [2,3,5] or 'Hello' )</p>
+    <input type="text" id="isarray" placeholder="Enter value">
+    <button onclick="check()">Find</button>
+    <div id="out8" class="out8"></div>
+
+    <h1>9. String includes</h1>
+    <p>Enter a sentence:</p>
+    <input type="text" id="sen" placeholder="Enter a sentence">
+    <p>Enter a word to find:</p>
+    <input type="text" id="word" placeholder="Enter a word">
+    <button onclick="checkword()">check</button>
+    <div id="out9" class="out9"></div>
+
+    <h1>10. Array keys()</h1>
+    <p>Enter item which are seperated by comma</p>
+    <input type="text" id="keys" placeholder="Enter items with coma">
+    <button onclick="findkeys()">Find</button>
+    <div id="out10" class="out10"></div>
+
+    <script>
+        const input=[1,2,3,4,5];
+        function squaretrad(num){
+            let squared=[];
+            for(let i=0; i<num.length; i++){
+                squared.push(num[i]*num[i]);
+            }return squared;
+        }
+        function runtraditional(){
+            const result=squaretrad(input);
+            document.getElementById("out1").textContent="Traditional Function Output: "+result;
+        }
+        const squaredarr=(num)=> num.map(no => no*no);
+        function runarrow(){
+            const result=squaredarr(input);
+            document.getElementById("out1").textContent="Arrow Function Output: "+result;
+        }
+
+        const obj1 = { a: 1, b: 2 }; 
+        const obj2 = { c: 3, d: 4 }; 
+        const obj3 = { e: 5, f: 6 };
+        function merge(obj1,obj2,obj3){
+            return{...obj1, ...obj2, ...obj3};
+        }
+        const result2=merge(obj1,obj2,obj3);
+        document.getElementById("out2").textContent="Merged Object Output: "+JSON.stringify(result2, null, 2);
+
+        const students = [ 
+            { name: 'Alice', score: 85 }, 
+            { name: 'Bob', score: 92 }, 
+            { name: 'Charlie', score: 78 } 
+        ];
+        function showscores(name){
+            const studmap=new Map();
+            students.forEach(student =>{
+                studmap.set(student.name, student.score);
+            });
+            return studmap.get(name)??'Student not found';
+        }
+        function Getscores(){
+            const name=document.getElementById("studentName").value;
+            const score=showscores(name);
+            document.getElementById("out3").textContent="Score: "+score;
+        }
+
+        function removeDuplicatesFromList(numbers) {
+            const uniqueSet = new Set(numbers);
+            return [...uniqueSet];
+        }
+        function unique() {
+            const input = document.getElementById("uniqueno").value;
+            const numberList = input.split(',').map(num => parseInt(num.trim(), 10));
+            const uniqueList = removeDuplicatesFromList(numberList);
+            document.getElementById("out4").textContent = "Unique Numbers: " + uniqueList.join(', ');
+        }
+
+        function filterword(words){
+            return words.filter(word=>word.length >5);
+        }
+        function filtering(){
+            const words=['Cheetah', 'Lion', 'Falcon', 'Giraffe', 'Llama', 'Koala', 'Bahoo'];
+            const result5=filterword(words);
+            document.getElementById("out5").textContent="Filtered words :"+result5.join(', ');
+        }
+
+        function calpro(num6){
+            return num6.reduce((product, current)=>(product *current),1);
+        }
+        function product(){
+            const input2=document.getElementById("pro").value;
+            const numarray=input2.split(',').map(num=>parseInt(num.trim(),10));
+            const product=calpro(numarray);
+            document.getElementById("out6").textContent="Product :"+product;
+        }
+
+        function firstlast(array, element){
+            const firstindex=array.indexOf(element);
+            const lastindex=array.lastIndexOf(element);
+            return{firstindex,lastindex};
+        }
+        function find(){
+            const input3=document.getElementById("index").value;
+            const numarray=input3.split(',').map(num=>parseInt(num.trim(),10));
+            const element=parseInt(document.getElementById("find").value.trim(),10);
+            const result=firstlast(numarray,element);
+            if(result.firstindex!==-1 && result.lastindex!==-1){
+                document.getElementById("out7").textContent="First Index: "+result.firstindex+", Last Index: "+result.lastindex;
+            }else{
+                document.getElementById("out7").textContent="Element not found!";
+            }
+        }
+
+        function arraycheck(value){
+            try{
+                return eval(value);
+            }
+            catch{
+                return value;
+            }
+        }
+        function check(){
+            const userinput=document.getElementById("isarray").value;
+            const parsed=arraycheck(userinput);
+            const result=Array.isArray(parsed);
+            document.getElementById("out8").textContent="Is Array: "+result;
+        }
+
+        function checkword(){
+            const sentence=document.getElementById("sen").value;
+            const word=document.getElementById("word").value;
+            const result9=sentence.includes(word);
+            document.getElementById("out9").textContent="Is word present: "+result9;
+        }
+
+        function findkeys(){
+            const input10=document.getElementById("keys").value;
+            const itemarray=input10.split(',').map(item=>item.trim());
+            const indexes=[...itemarray.keys()];
+            document.getElementById("out10").textContent="Indexes: "+indexes.join(', ');
+        }
+    </script>
+</body>
+</html>
