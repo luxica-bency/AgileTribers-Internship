@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced js task2</title>
+</head>
+<body style="text-align: center;">
+    <h1>1. String replace</h1>
+    <h3>Replacing string</h3>
+    <h4>original string</h4>
+    <input id="original" type="text" placeholder="apple banana apple grape apple" size="50"><br>
+    <h4>Word to replace</h4>
+    <input id="replace" type="text" placeholder="apple" size="50"><br>
+    <h4>Replacement string</h4>
+    <input id="string" type="text" placeholder="orange" size="50"><br><br>
+    <button onclick="replacement()">Replace</button>
+    <div id="out1" class="out1"></div>
+
+    <h1>2. check if value exist in an array</h1>
+    <h4>Enter array seperated by comma:</h4>
+    <input id="check" type="text" placeholder="apple" size="50"><br>
+    <h4>Enter element to search</h4>
+    <input id="tosearch" type="text" placeholder="apple" size="50"><br><br>
+    <button onclick="checkele()">check</button>
+    <div id="out2" class="out2"></div>
+
+    <h1>3. Async, await, promise, fetch, axios</h1>
+    <button onclick="fetchdata()">Fetch data</button>
+    <div id="out3" class="out3"></div>
+
+    <h1>4. Exception Handling</h1>
+    <h4>Enter two numbers:</h4>
+    <input id="num1" type="number" placeholder="Enter 1st number" size="50">
+    <input id="num2" type="number" placeholder="Enter 2nd number" size="50"><br><br>
+    <button onclick="divide()">divide</button>
+    <div id="out4" class="out4"></div>
+
+    <h1>5. Template Literals</h1>
+    <h4>Enter the name:</h4>
+    <input id="name" type="text" placeholder="Enter the name" size="50"><br>
+    <h4>Enter the age</h4>
+    <input id="age" type="text" placeholder="Enter the age" size="50"><br><br>
+    <button onclick="literals()">check</button>
+    <div id="out5" class="out5"></div>
+
+    <h1>6. Destructuring Assignment</h1>
+    <h4>Enter the name:</h4>
+    <input id="name2" type="text" placeholder="Enter name" size="50"><br>
+    <h4>Enter the age</h4>
+    <input id="age2" type="text" placeholder="Enter age" size="50"><br>
+    <h4>Enter city</h4>
+    <input id="city" type="text" placeholder="Enter city" size="50"><br><br>
+    <button onclick="des()">check</button>
+    <div id="out6" class="out6"></div>
+
+    <h1>7. Default Parameters</h1>
+    <h4>Enter two numbers:</h4>
+    <input id="num3" type="number" placeholder="Enter 1st number" size="50">
+    <input id="num4" type="number" placeholder="Enter 2nd number" size="50"><br><br>
+    <button onclick="sum()">Sum</button>
+    <div id="out7" class="out7"></div>
+
+    <h1>8. Rest parameters</h1>
+    <h4>Enter numbers seperated by comma:</h4>
+    <input id="num5" type="text" placeholder="Enter numbers" size="50"><br><br>
+    <button onclick="sumall()">Find Sum</button>
+    <div id="out8" class="out8"></div>
+
+    <h1>9.Sum of numbers</h1>
+    <h4>Enter numbers seperated by comma:</h4>
+    <input id="num6" type="text" placeholder="Enter numbers" size="50"><br><br>
+    <button onclick="sumarray()">Find Sum</button>
+    <div id="out9" class="out9"></div>
+
+    <script>
+        function replacement(){
+            const original=document.getElementById("original").value;
+            const replace=document.getElementById("replace").value;
+            const string=document.getElementById("string").value;
+            const out1=original.replaceAll(replace,string);
+            document.getElementById("out1").textContent=out1;
+        }
+
+        function checkele(){
+            const arrayin=document.getElementById("check").value;
+            const ele=document.getElementById("tosearch").value;
+            const array=arrayin.split(',').map(item => item.trim());
+            const out2= array.includes(ele);
+            document.getElementById("out2").textContent=out2;
+        }
+
+        async function fetchdata(){
+            const url='https://jsonplaceholder.typicode.com/todos/1';
+            try{
+                const res= await fetch(url);
+                const data= await res.json();
+                document.getElementById("out3").textContent=JSON.stringify(data, null, 2);
+            }
+            catch{
+                document.getElementById("out3").textContent='Error fetching data';
+            }
+        }
+
+        function divide(){
+            const num1=document.getElementById("num1").value;
+            const num2=document.getElementById("num2").value;
+            try{
+                if(num2==0){
+                    throw new Error('Division by zero is not possible');
+                }
+                const out4=num1/num2;
+                document.getElementById("out4").textContent=out4;
+            }
+            catch(error){
+                document.getElementById("out4").textContent=error.message;
+            }
+        }
+
+        function literals(){
+            const name=document.getElementById("name").value;
+            const age=document.getElementById("age").value;
+            const msg=`My name is ${name} and I am ${age} years old`;
+            document.getElementById("out5").textContent=msg;
+        }
+        function des(){
+            const per={
+                name: document.getElementById("name2").value,
+                age: document.getElementById("age2").value,
+                city: document.getElementById("city").value
+            }
+            const {name,age, city}=per;
+            document.getElementById("out6").innerHTML=`Name: ${name}<br>Age: ${age}<br>City: ${city}`;
+        }
+
+        function add(num3,num4=10){
+            return num3+num4;
+        }
+        function sum(){
+            const num3=Number(document.getElementById("num3").value);
+            const bIn=document.getElementById("num4").value;
+            const num4= bIn=== ''? undefined:Number(bIn);
+            const out7=add(num3,num4);  
+            document.getElementById("out7").textContent='Sum : '+out7;
+        }
+
+        function all(...numbers){
+            return numbers.reduce((acc, curr) => acc + curr, 0);
+        }
+        function sumall(){
+            const num5=document.getElementById("num5").value;
+            const numArray=num5.split(',').map(n => Number(n.trim()));
+            const out8=all(...numArray);
+            document.getElementById("out8").textContent=`Sum: ${out8}`;
+        }
+
+        function sumarr(num){
+            return num.reduce((tot, cur2) => tot + cur2, 0);
+        }
+        function sumarray(){
+            const num6=document.getElementById("num6").value;
+            const numarr=num6.split(',').map(n=> Number(n.trim()));
+            const out9=sumarr(numarr);
+            document.getElementById("out9").textContent=`Sum: ${out9}`;
+        }
+    </script>
+</body>
+</html>
