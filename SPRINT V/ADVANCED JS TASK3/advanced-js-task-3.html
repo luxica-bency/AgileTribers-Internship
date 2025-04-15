@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Advanced js task 3</title>
+</head>
+<body style="text-align: center;">
+
+    <h1>1. Longest String</h1>
+    <h3>Enter items separated by comma:</h3>
+    <input type="text" id="string" placeholder="enter string ">
+    <button onclick="longstring()">Find the longest</button> 
+    <div id="out1" class="out1"></div>
+
+    <h1>2. Flatten array</h1>
+    <h3>Enter nested array:</h3>
+    <input type="text" id="arrayinput" placeholder="Enter nested array">
+    <button onclick="nestedarray()">Flatten</button>
+    <div id="out2" class="out2"></div>
+
+    <h1>3. Count occurrences</h1>
+    <h3>Enter words separated by comma:</h3>
+    <input type="text" id="obj" placeholder="enter Words ">
+    <button onclick="occurrences()">Occurrences</button> 
+    <div id="out3" class="out3"></div>
+
+    <h1>4. Group by property</h1>
+    <h4>The objects are :</h4>
+    <textarea id="objin" rows="7" style="width: 350px;">
+        [{ "name": "Alice", "age": 21 }, 
+        { "name": "Bob", "age": 25 }, 
+        { "name": "Charlie", "age": 21 }, 
+        { "name": "David", "age": 25 }, 
+        { "name": "Eve", "age": 22 }]
+    </textarea>
+    <p>Enter the property</p>
+    <input type="text" id="property" placeholder="Enter property name">
+    <button onclick="groupobj()">Group</button>
+    <div id="out4" class="out4" style="white-space: pre-wrap;margin-top: 10px;"></div>
+
+    <h1>5. total proce of items in cart</h1>
+    <h3>The items in the cart are:</h3>
+    <textarea id="cartin" rows="7" style="width: 350px;">
+        [ 
+        { "item": "apple", "price": 1.5 }, 
+        { "item": "banana", "price": 2.0 }, 
+        { "item": "orange", "price": 1.25 },
+        {"item": "pie", "price":13.00} 
+        ]
+    </textarea><br>
+    <button onclick="calculateTotal()">Calculate Total</button>
+    <div id="out5" class="out5"></div>
+
+    <h1>6. Find first even number</h1>
+    <h3>Enter the array:</h3>
+    <input id="even" type="text" placeholder="enter the array" ><br><br>
+    <button onclick="findeven()">Find</button><br>
+    <div id="out6" class="out6"></div>
+
+    <h1>7. Find student by name</h1>
+    <h4>The details of students are :</h4>
+    <textarea id="objin" rows="7" style="width: 350px;">
+        [{ "name": "Alice", "age": 21 }, 
+        { "name": "Bob", "age": 25 }, 
+        { "name": "Charlie", "age": 23 }, 
+        { "name": "Eve", "age": 24 },
+        { "name": "Frank", "age": 26 }, 
+        { "name": "Grace", "age": 22 }, 
+        { "name": "Heidi", "age": 23 }, 
+        { "name": "Ivan", "age": 24 }, 
+        { "name": "Judy", "age": 25 }]
+    </textarea>
+    <p>Enter the name to search</p>
+    <input type="text" id="name" placeholder="Enter student name to search">
+    <button onclick="searchname()">Search</button>
+    <div id="out7" class="out7"></div>
+
+    <h1>8. Find product by ID</h1>
+    <h4>The details of product are :</h4>
+    <textarea id="proid" rows="7" style="width: 350px;">
+        [
+    { "id": 101, "name": "Laptop" },
+    { "id": 102, "name": "Phone" },
+    { "id": 103, "name": "Tablet" }
+    ]
+    </textarea>
+    <p>Enter the product id</p>
+    <input type="text" id="product" placeholder="Enter product id to search">
+    <button onclick="productid()">Search</button>
+    <div id="out8" class="out8"></div>
+
+    <h1>9. Find overdue task</h1>
+    <h3>Enter task list:</h3>
+    <textarea id="taskin" rows="7" style="width: 350px;">
+        [
+    { "taskName": "Task 1", "dueDate": "2023-06-01" },
+    { "taskName": "Task 2", "dueDate": "2024-05-01" },
+    { "taskName": "Task 3", "dueDate": "2024-01-01" }
+    ]
+    </textarea><br><br>
+    <button onclick="taskover()">Find Overdue task</button>
+    <div id="out9" class="out9"></div>
+
+    <script>
+        function longstring(){
+            const input1=document.getElementById("string").value;
+            const array=input1.split(',').map(str=>str.trim());
+            const long=array.reduce((long,cur)=>{
+                return cur.length>long.length?cur:long;
+            },"");
+            document.getElementById("out1").innerHTML=`Longest string: ${long}`;
+        }
+
+        function nestedarray(){
+            const input2=document.getElementById("arrayinput").value;
+            try{
+            const nested=JSON.parse(input2);
+            const flatted=nested.reduce((acc,cur2)=>{
+                return acc.concat(cur2);} ,[]);
+                document.getElementById("out2").innerHTML=`Flattened array: [${flatted.join(',')}]`;
+            }
+            catch(error){
+                document.getElementById("out2").innerHTML="Invalid input. Please enter a valid nested array.";
+            }
+        }
+
+        function occurrences(){
+            const input3=document.getElementById('obj').value;
+            const words=input3.split(',').map(word=>word.trim().toLowerCase());
+            const counts=words.reduce((acc3,word)=>{
+                acc3[word]=(acc3[word]||0)+1;
+                return acc3;
+            },{});
+            document.getElementById('out3').innerHTML=`Occurrences: ${JSON.stringify(counts)}`;
+        }
+
+        function groupby(array4,property){
+            return array4.reduce((acc4, obj) => {
+                const key = obj[property];
+                if (!acc4[key]) {
+                    acc4[key] = [];
+                }
+                acc4[key].push(obj);
+                return acc4;
+            }, {});
+        }
+        function groupobj(){
+            const input4=document.getElementById("objin").value;
+            const property=document.getElementById("property").value;
+            try{
+                const array4=JSON.parse(input4);
+                const grouped=groupby(array4,property);
+                document.getElementById("out4").innerHTML=`<pre> Grouped objects:<br> ${JSON.stringify(grouped, null,2)}</pre>`;
+            }
+            catch(error){
+                document.getElementById("out4").innerHTML="Invalid input. Please check the array or property.";
+            }
+        }
+
+        function calculateTotal(){
+            const input5=document.getElementById("cartin").value;
+            try{
+                const cart=JSON.parse(input5);
+                const total=cart.reduce((sum,obj)=>sum+obj.price,0);
+                document.getElementById("out5").innerHTML=`Total Price: $${total.toFixed(2)}`;
+            }
+            catch(error){
+                document.getElementById("out5").innerHTML="Invalid input. Please enter a valid JSON array.";
+            }
+        }
+
+        function findeven(){
+            const input6=document.getElementById("even").value;
+            try{
+                const array6=JSON.parse(input6);
+                const first=array6.find(num=> num%2===0);
+                document.getElementById("out6").innerHTML=`First even number in the array: ${first!==undefined?first:"No even number found."}`;
+            }
+            catch(error){
+                document.getElementById("out6").innerHTML="Invalid input. Please enter a valid array.";
+            }
+        }
+
+        function searchname(){
+            const input7=document.getElementById("objin").value;
+            const name=document.getElementById("name").value;
+            try{
+                const array7=JSON.parse(input7);
+                const student=array7.find(obj=>obj.name.toLowerCase()===name.toLowerCase());
+                document.getElementById("out7").innerHTML=`Student details: ${student?JSON.stringify(student):"No student found."}`;
+            }
+            catch(error){
+                document.getElementById("out7").innerHTML="Invalid input. Please enter a valid JSON array.";
+            }
+        }
+
+        function productid(){
+            const input8=document.getElementById("proid").value;
+            const id=document.getElementById("product").value;
+            try{
+                const array8=JSON.parse(input8);
+                const product=array8.find(obj=>obj.id===parseInt(id));
+                document.getElementById("out8").innerHTML=`Product details: ${product?JSON.stringify(product):"No product found."}`;
+            }
+            catch(error){
+                document.getElementById("out8").innerHTML="Invalid input. Please enter a valid JSON array.";
+            }
+        }
+
+        function overdue(tasks){
+            const today=new Date().toISOString().split("T")[0];
+            return tasks.find(task=>task.dueDate<today);
+        }
+        function taskover(){
+            const input9=document.getElementById("taskin").value;
+            try{
+                const tasks=JSON.parse(input9);
+                const overdueTask=overdue(tasks);
+                document.getElementById("out9").innerHTML=`Overdue Task: ${overdueTask?JSON.stringify(overdueTask):"No overdue tasks found."}`;
+            }
+            catch(error){
+                document.getElementById("out9").innerHTML="Invalid input. Please enter a valid JSON array.";
+            }
+        }
+    </script>
+
+</body>
+</html>
