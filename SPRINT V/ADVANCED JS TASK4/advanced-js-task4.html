@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Advanced js task 4</title>
+</head>
+<body style="text-align: center;">
+    <h1>1. Find first Positive number</h1>
+    <h3>Enter numbers in array</h3>
+    <input type="text" id="input1" placeholder="Enter numbers in array"><br><br>
+    <button onclick="runtask1()">Find First Positive</button>
+    <div id="out1" class="out1"></div>
+
+    <h1>2. Find book by title</h1>
+    <h3>Enter book title:</h3>
+    <input type="text" id="input2" placeholder="Enter book title"><br><br>
+    <textarea id="texttask2" rows="7" style="width: 450px;">
+    [{"title": "1984", "author": "George Orwell"},
+    {"title": "To Kill a Mockingbird", "author": "Harper Lee"},
+    {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald"}]
+    </textarea><br><br>
+    <button onclick="runtask2()">Find Book</button>
+    <div id="out2" class="out2"></div>
+
+    <h1>3. Find Employee by ID</h1>
+    <h3>Enter employee id:</h3>
+    <input type="number" id="input3" placeholder="Enter employee id"><br><br>
+    <textarea id="texttask3" rows="7" style="width: 450px;">
+    [{"id": 1, "name": "Alice", "position": "Manager"},
+    {"id": 2, "name": "Bob", "position": "Engineer"},
+    {"id": 3, "name": "Charlie", "position": "Technician"}]
+    </textarea><br><br>
+    <button onclick="runtask3()">Find Employee</button>
+    <div id="out3" class="out3"></div>
+
+    <h1>4. Find First Prime number</h1>
+    <h3>Enter numbers in array:</h3>
+    <input type="text" id="input4" placeholder="Enter numbers in array"><br><br>
+    <button onclick="runtask4()">Find prime number</button>
+    <div id="out4" class="out4"></div>
+
+    <h1>5. Destructuring and Template Literals</h1>
+    <input type="text" id="input5" value='{"firstname":"John","lastname":"Doe","age":30}' style="width: 350px;"><br><br>
+    <button onclick="runtask5()">Describe Person</button>
+    <div id="out5" class="out5"></div>
+
+    <h1>6. Array methods and arrow functions</h1>
+    <h3>Enter numbers in array:</h3>
+    <input type="text" id="input6" placeholder="Enter numbers in array"><br><br>
+    <button onclick="runtask6()">Find square of even</button>
+    <div id="out6" class="out6"></div>
+
+    <h1>7. Default parameters and rest parameters</h1>
+    <h3>Enter words separated by commas:</h3>
+    <input type="text" id="input7" placeholder="Enter words separated by commas"><br><br>
+    <h3>Enter separator (optional):</h3>
+    <input type="text" id="input7_1" placeholder="Separator"><br><br>
+    <button onclick="runtask7()">Join words</button>
+    <div id="out7" class="out7"></div>
+
+    <h1>8. Spread operator and array methods</h1>
+    <h3>Enter first array</h3>
+    <input type="text" id="input8" placeholder="Enter numbers in array"><br>
+    <h3>Enter second array</h3>
+    <input type="text" id="input8-1" placeholder="Enter numbers in array"><br><br>
+    <button onclick="runtask8()">Add array</button>
+    <div id="out8" class="out8"></div>
+
+    <h1>9. Promises and Async/Await</h1>
+    <button onclick="runtask9()">Fetch data</button>
+    <div id="out9" class="out9"></div>
+
+    <h1>10. Array methods, Destructuring and reduce</h1>
+    <h3>the products with price are:</h3><br>
+    <textarea id="texttask10" rows="7" style="width: 450px;">
+        [ { "name": "Laptop", "price": 1000 }, 
+        { "name": "Phone", "price": 500 },
+        {"name": "land", "price": 50000}, 
+        { "name": "Tablet", "price": 700 } ]
+    </textarea><br><br>
+    <button onclick="runtask10()">Expensive product</button>
+    <div id="out10" class="out10"></div>
+
+    <script>
+        function findpositive(arr1){
+            return arr1.find(num1 => num1 >0);
+        }
+        function runtask1(){
+            const input1=JSON.parse(document.getElementById("input1").value);
+            document.getElementById("out1").textContent = findpositive(input1);
+        }
+
+        function findbook(book,title){
+            return book.find(book1 => book1.title === title);
+        }
+        function runtask2(){
+            const book=JSON.parse(document.getElementById("texttask2").value);
+            const title=document.getElementById("input2").value;
+            document.getElementById("out2").textContent =JSON.stringify(findbook(book,title));
+        }
+
+        function findemp(employe, id){
+            return employe.find(emp => emp.id === id);
+        }
+        function runtask3(){
+            const employe=JSON.parse(document.getElementById("texttask3").value);
+            const id=parseInt(document.getElementById("input3").value);
+            document.getElementById("out3").textContent =JSON.stringify(findemp(employe,id));
+        }
+
+        function isprime(n){
+            if (n <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) return false;
+            }
+            return true;
+        }
+        function findprime(arr4){
+            return arr4.find(isprime);
+        }
+        function runtask4(){
+            const input4=JSON.parse(document.getElementById("input4").value);
+            document.getElementById("out4").textContent = findprime(input4);
+        }
+
+        function describe(person){
+            const {firstname, lastname, age}=person;
+            return `${firstname} ${lastname} is ${age} years old.`;  
+        }
+        function runtask5(){
+            const person=JSON.parse(document.getElementById("input5").value);
+            document.getElementById("out5").textContent = describe(person);
+        }
+
+        function findsquare(arr6){
+            return arr6.filter(num => num % 2 === 0).map(num => num * num);
+        }
+        function runtask6(){
+            const input6=JSON.parse(document.getElementById("input6").value);
+            document.getElementById("out6").textContent = JSON.stringify(findsquare(input6));
+        }
+
+        function join(separator= ',', ...word) {
+            return word.join(separator);
+        }
+        function runtask7(){
+            const word=document.getElementById("input7").value.split(',');
+            const separator=document.getElementById("input7_1").value || ',';
+            document.getElementById("out7").textContent = join(separator, ...word);
+        }
+
+        function twoarray(a1,a2){
+            return [...new Set([...a1,...a2])];
+        }
+        function runtask8(){
+            const a1=JSON.parse(document.getElementById("input8").value);
+            const a2=JSON.parse(document.getElementById("input8-1").value);
+            document.getElementById("out8").textContent = JSON.stringify(twoarray(a1,a2));
+        }
+
+        async function fetchdata(){
+            const res=await fetch('https://jsonplaceholder.typicode.com/todos/1');
+            return await res.json();
+        }
+        async function runtask9(){
+            const data=await fetchdata();
+            document.getElementById("out9").textContent = JSON.stringify(data, null, 2);
+        }
+
+        function expensive(product){
+            const total=product.reduce((acc10, {price}) => acc10 + price, 0);
+            const avg=total/product.length;
+            return product.filter(({price}) => price > avg).map(({name}) => name);
+        }
+        function runtask10(){
+            const product=JSON.parse(document.getElementById("texttask10").value);
+            document.getElementById("out10").textContent = JSON.stringify(expensive(product));
+        }
+    </script>
+</body>
