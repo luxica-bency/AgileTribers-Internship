@@ -1,0 +1,83 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f4f8;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+h3 {
+    text-align: center;
+    color: #333;
+}
+#namepart, #searchpart {
+    display: block;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+}
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.actions button {
+    margin-left: 5px;
+}
+.actions .delete {
+    background-color: #dc3545;
+}
+.actions .edit {
+    background-color: #ffc107;
+}
+.actions .delete:hover {
+    background-color: #b02a37;
+}
+.actions .edit:hover {
+    background-color: #d39e00;
+}
+.info-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+#totalstud {
+    font-weight: bold;
+    color: #333;
+}
+#searchInput {
+    margin-bottom: 10px;
+}
+#clearAllBtn {
+    background-color: #dc3545;
+}
+#clearAllBtn:hover {
+    background-color: #b02a37;
+}
